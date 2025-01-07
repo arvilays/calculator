@@ -1,0 +1,80 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+/* fonts: "roboto" */
+
+body {
+    margin: 0;
+    font-family: "roboto";
+    font-size: 16px;
+    background-color: hsl(225, 6%, 30%);
+}
+
+.calculator {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    flex-direction: column;
+    background-color: black;
+    color: white;
+    font-size: 2em;
+    width: 700px;
+    height: 800px;
+    border: 5px solid black;
+    border-radius: 20px;
+    overflow: hidden;
+}
+
+.calculator-row {
+    display: flex;
+    flex: 1;
+}
+
+.calculator-row > div {
+    flex: 1;
+    align-content: center;
+    text-align: center;
+    outline: 2px solid black;
+}
+
+.calculator-row1 > .calculator-screen {
+    text-align: right;
+    padding-right: 30px;
+    font-size: 2em;
+}
+
+.calculator-row6 > .calculator-0 {
+    flex: 2;
+}
+
+.calculator-minus, .calculator-decimal {
+    font-size: 1.5em;
+}
+
+.fn {
+    background-color: hsl(240, 2%, 37%);
+}
+
+.fn:hover {
+    background-color: hsl(240, 2%, 47%);
+}
+
+.op {
+    background-color: hsl(36, 100%, 52%);
+}
+
+.op:hover {
+    background-color: hsl(36, 100%, 62%);
+}
+
+.num {
+    background-color: hsl(240, 2%, 17%);
+}
+
+.num:hover {
+    background-color: hsl(240, 2%, 27%);
+}
+
+.button:hover {
+    cursor: pointer;
+}
