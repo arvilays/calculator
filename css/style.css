@@ -26,6 +26,8 @@ body {
 }
 
 .calculator-row {
+    user-select: none;
+    -webkit-user-select: none;
     display: flex;
     flex: 1;
 }
@@ -38,6 +40,8 @@ body {
 }
 
 .calculator-row1 > .calculator-screen {
+    user-select: text;
+    -webkit-user-select: text;
     text-align: right;
     padding-right: 30px;
     font-size: 2em;
@@ -59,6 +63,10 @@ body {
     background-color: hsl(240, 2%, 47%);
 }
 
+.fn:active:hover {
+    background-color: hsl(240, 2%, 27%);
+}
+
 .op {
     background-color: hsl(36, 100%, 52%);
 }
@@ -67,14 +75,23 @@ body {
     background-color: hsl(36, 100%, 62%);
 }
 
-.num {
+.op:active:hover {
+    background-color: hsl(36, 100%, 42%);
+}
+
+.num, .dec {
     background-color: hsl(240, 2%, 17%);
 }
 
-.num:hover {
+.num:hover, .dec:hover {
     background-color: hsl(240, 2%, 27%);
+}
+
+.num:active:hover, .dec:active:hover {
+    background-color: hsl(240, 2%, 12%);
 }
 
 .button:hover {
     cursor: pointer;
 }
+
