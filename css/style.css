@@ -47,11 +47,7 @@ body {
     font-size: 2em;
 }
 
-.calculator-row6 > .calculator-0 {
-    flex: 2;
-}
-
-.calculator-minus, .calculator-decimal {
+.calculator-minus, .calculator-decimal, #back {
     font-size: 1.5em;
 }
 
@@ -89,6 +85,18 @@ body {
 
 .num:active:hover, .dec:active:hover {
     background-color: hsl(240, 2%, 12%);
+}
+
+#back {
+    background-color: hsl(0, 52%, 35%);
+}
+
+#back:hover {
+    background-color: hsl(0, 52%, 45%);
+}
+
+#back:active:hover {
+    background-color: hsl(0, 52%, 25%);
 }
 
 .button:hover {
