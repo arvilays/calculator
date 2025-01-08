@@ -32,7 +32,6 @@ acButton.addEventListener("click", () => {
 
 signButton.addEventListener("click", () => {
     invertOperation();
-    console.log(calculatorSequence);
 });
 
 const invertOperation = () => {
@@ -64,7 +63,19 @@ const invertToggleAtIndex = index => {
 };
 
 percentButton.addEventListener("click", () => {
-
+    let lastSequenceValue = calculatorSequence[calculatorSequence.length - 1];
+    if (lastSequenceValue != "0") {
+        if (calculatorSequence.length == 1 || calculatorSequence.length == 2) {
+            calculatorSequence[0] /= 100;
+            calculatorScreen.textContent = calculatorSequence[0];
+        } else if (calculatorSequence.length == 3) {
+            calculatorSequence[2] /= 100;
+            calculatorScreen.textContent = calculatorSequence[2];
+        } else {
+            resetCalculator();
+            throw new Error("Invalid length");
+        }
+    }
 });
 
 /*##############################
