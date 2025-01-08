@@ -1,6 +1,7 @@
 const calculatorScreen = document.querySelector("#screen");
 const acButton = document.querySelector("#ac");
 const signButton = document.querySelector("#sign");
+const percentButton = document.querySelector("#percent");
 const numButtons = document.querySelectorAll(".num");
 const decimalButton = document.querySelector("#dec");
 const operationButtons = document.querySelectorAll(".op");
@@ -43,25 +44,28 @@ const invertOperation = () => {
     
     if (lastSequenceValue != "0") {
         if (calculatorSequence.length == 1 || calculatorSequence.length == 2) {
-            if (calculatorSequence[0].charAt(0) == "-") {
-                calculatorSequence[0] = calculatorSequence[0].slice(1);
-            } else {
-                calculatorSequence[0] = "-".concat(String(calculatorSequence[0]));
-            }
-            calculatorScreen.textContent = calculatorSequence[0];
+            invertToggleAtIndex(0);
         } else if (calculatorSequence.length == 3) {
-            if (calculatorSequence[2].charAt(0) == "-") {
-                calculatorSequence[2] = calculatorSequence[2].slice(1);
-            } else {
-                calculatorSequence[2] = "-".concat(String(calculatorSequence[2]));
-            }
-            updateScreen();
+            invertToggleAtIndex(2);
         } else {
             resetCalculator();
             throw new Error("Invalid length");
         }
     }
 };
+
+const invertToggleAtIndex = index => {
+    if (calculatorSequence[index].charAt(0) == "-") {
+        calculatorSequence[index] = calculatorSequence[index].slice(1);
+    } else {
+        calculatorSequence[index] = "-".concat(String(calculatorSequence[index]));
+    }
+    calculatorScreen.textContent = calculatorSequence[index];
+};
+
+percentButton.addEventListener("click", () => {
+
+});
 
 /*##############################
 ||       NUMBER BUTTONS       ||
