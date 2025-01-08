@@ -7,7 +7,7 @@ const numButtons = document.querySelectorAll(".num");
 const decimalButton = document.querySelector("#dec");
 const operationButtons = document.querySelectorAll(".op");
 
-let showFullEquation = true;
+let showFullEquation = false;
 
 let calculatorSequence = [0]; // max length of 3 | example 1: [3, +, 5] | example 2: [2, *, 8]
 let pressedEquals = false;
@@ -249,4 +249,5 @@ document.addEventListener("keydown", e => {
     else if (e.key == "9") startNum("9");
     else if (e.key == ".") decimalOperation();
     else if (e.key == "Backspace") backOperation();
+    else if (e.key == "`") showFullEquation = !showFullEquation;
 });
