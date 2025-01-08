@@ -18,13 +18,12 @@ const containsValueSingle = (value, match) => {
 
 const updateScreen = () => {
     if (showFullEquation) calculatorScreen.textContent = calculatorSequence.join(" ");
-    else calculatorScreen.textContent = calculatorSequence[calculatorSequence.length - 1];
+    else calculatorScreen.textContent = String(calculatorSequence[calculatorSequence.length - 1]);
 }
 
 const resetCalculator = () => {
     calculatorSequence = [0];
     updateScreen();
-    console.log(calculatorSequence);
 }
 
 const generateErrorMessage = () => {
@@ -147,7 +146,6 @@ const updateNum = num => {
         calculatorSequence[calculatorSequence.length - 1] += num;
     }
     updateScreen();
-    console.log(calculatorSequence);
 };
 
 decimalButton.addEventListener("click", () => { 
@@ -179,7 +177,6 @@ const startOperation = value => {
     if (containsValueSingle(operation, "+-x/=")) {
         calculateOperation(operation);
     }
-    console.log(calculatorSequence);
 };
 
 const calculateOperation = operator => {
@@ -200,15 +197,15 @@ const calculateOperation = operator => {
         if (showFullEquation) updateScreen(); 
     
     } else if (calculatorSequence.length == 3) { // example: [3, +, 5]
-        if (calculatorSequence[1] == "+") calculatorSequence = [Number(calculatorSequence[0]) + Number(calculatorSequence[2])];
-        else if (calculatorSequence[1] == "-") calculatorSequence = [Number(calculatorSequence[0]) - Number(calculatorSequence[2])];
-        else if (calculatorSequence[1] == "x") calculatorSequence = [Number(calculatorSequence[0]) * Number(calculatorSequence[2])];
+        if (calculatorSequence[1] == "+") calculatorSequence = [(Number(calculatorSequence[0]) + Number(calculatorSequence[2])).toFixed(15) * 1];
+        else if (calculatorSequence[1] == "-") calculatorSequence = [(Number(calculatorSequence[0]) - Number(calculatorSequence[2])).toFixed(15) * 1];
+        else if (calculatorSequence[1] == "x") calculatorSequence = [(Number(calculatorSequence[0]) * Number(calculatorSequence[2])).toFixed(15) * 1];
         else if (calculatorSequence[1] == "/") {
             if (calculatorSequence[2] == 0) {
                 resetCalculator();
                 calculatorScreen.textContent = generateErrorMessage();
                 return;
-            } else calculatorSequence = [Number(calculatorSequence[0]) / Number(calculatorSequence[2])];
+            } else calculatorSequence = [(Number(calculatorSequence[0]) / Number(calculatorSequence[2])).toFixed(15) * 1];
         } else {
             resetCalculator();
             throw new Error("Invalid operator");
